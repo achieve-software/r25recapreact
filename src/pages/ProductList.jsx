@@ -1,34 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import CardTotal from "../components/CardTotal";
-import axios from "axios";
-
-const ProductList = () => {
-  // const url =process.env.REACT_APP_API_URL;
-  const url = "https://64b8395f21b9aa6eb079b184.mockapi.io/products";
-  console.log(url);
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [errorState, setErrorState] = useState(false);
-
-
+import axios from "axios";const ProductList = () => {  // const url = process.env.REACT_APP_API_URL;
+  const url = "https://64b8395f21b9aa6eb079b184.mockapi.io/products"  
+  console.log("url",url);  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [errorState, setErrorState] = useState(false)  
   const getProducts = async () => {
-    setLoading(false);
+    console.log("merhaba");    setLoading(false)
     try {
-      const { data } = await axios("");
-      setProducts(data);
-    
+      const { data } = await axios("")
+     setProducts(data)    
       setErrorState(false)
+      console.log(data);
     } catch (error) {
-
       console.log(error)
-      setErrorState(true)
-    }
-  };
+      setErrorState(true)    }
+  }
+  console.log(products);
+  //? componentDidMount
   useEffect(() => {
-    getProducts();
-  }, []);
-
+   getProducts()
+  }, [])  
   return (
     <div className="container mt-3">
       <div className={"bg-light d-sm-block d-md-flex"}>
@@ -43,12 +36,8 @@ const ProductList = () => {
           </article>
         </>
          :
-         <p className="text-center text-danger w-100">No products data...</p>}
-
-        {errorState && ( <p className="text-center text-danger w-100">No products data...</p>)}
+        <p className="text-center text-danger w-100">No products data...</p> }        {errorState && ( <p className="text-center text-danger w-100">Error ...</p>)}
       </div>
     </div>
   );
-};
-
-export default ProductList;
+};export default ProductList;
