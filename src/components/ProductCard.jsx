@@ -47,19 +47,19 @@ const ProductCard = ({item, getProducts}) => {
             </div>
             <div className="border border-1 border-dark shadow-lg d-flex justify-content-center p-2">
               <div className="quantity-controller">
-                <button className="btn btn-secondary btn-sm" onClick={}>
+                <button className="btn btn-secondary btn-sm" onClick={handleMinus}>
                   <i className="fas fa-minus"></i>
                 </button>
                 <p className="d-inline mx-4" id="product-quantity">
                   {amount}
                 </p>
-                <button className="btn btn-secondary btn-sm"onClick={}>
+                <button className="btn btn-secondary btn-sm"onClick={handlePlus}>
                   <i className="fas fa-plus"></i>
                 </button>
               </div>
             </div>
             <div className="product-removal mt-4">
-              <button className="btn btn-danger btn-sm w-100 remove-product"onClick={}>
+              <button className="btn btn-danger btn-sm w-100 remove-product"onClick={handleRemove}>
                 <i className="fa-solid fa-trash-can me-2"></i>Remove
               </button>
             </div>
