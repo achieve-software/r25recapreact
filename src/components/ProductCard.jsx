@@ -3,14 +3,29 @@ import axios from "axios";
 const ProductCard = ({item, getProducts}) => {
   const url = "https://64b8395f21b9aa6eb079b184.mockapi.io/products";
   const {name,image,price,dampingRate,amount,id}=item
-
-  const handleMinus = () => {
-
-  }
+  const handleMinus = async () => {
+    if(amount-1){
+    try {
+      await axios.put(`${url}/${id}`, {
+        ...item,
+        amount: amount - 1,
+      });
+    } catch (error) {}
+    getProducts();}
+    else{
+      handleRemove()
+    }
+  };
   
-  const handlePlus = () => {
-    
-  }
+  const handlePlus = async () => {
+    try {
+      await axios.put(`${url}/${id}`, {
+        ...item,
+        amount: amount + 1,
+      });
+    } catch (error) {}
+    getProducts();
+  };
   
   const handleRemove = async () => {
     try {
