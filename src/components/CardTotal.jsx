@@ -17,7 +17,7 @@ const CardTotal = ({products}) => {
           </td>
         </tr>
         <tr className="text-end">
-          <th className="text-start">Tax(20%)</th>
+          <th className="text-start">Tax(25%)</th>
           <td>
             $<span className="tax">{(subTotal*taxRate).toFixed(2)}</span>
           </td>
@@ -29,7 +29,7 @@ const CardTotal = ({products}) => {
           </td>
         </tr>
         <tr className="text-end">
-          <th className="text-start">Total</th>
+          <th className="text-start">Totall</th>
           <td>
             $
             <span className="total">{(subTotal + shipping + taxRate*subTotal).toFixed(2)}
